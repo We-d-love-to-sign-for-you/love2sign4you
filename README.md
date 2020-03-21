@@ -1,4 +1,6 @@
-# frontend
+# Frontend
+
+Frontend of We'd love to sign for you
 
 ## Project setup
 ```
@@ -13,11 +15,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```
 
 ### Customize configuration
