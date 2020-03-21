@@ -3,10 +3,8 @@
     <div id="nav">
       <h1>Hello World</h1>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style>
-
-</style>
+<style></style>
