@@ -12,18 +12,19 @@
 
 <style>
   #nav {
-    margin: 0 0 0 15%;
+
+    text-align: center;
   }
 
   #nav a {
     text-decoration: none;
     text-align: center;
-    color: #3d9bee;
-    margin: 0 0 0 10%;
+    font-size: 1.5em;
+    color: #45c24c;
+    margin: 0 5% 0 0;
   }
 
   #nav a:hover {
-    color: #1a4aff;
-    margin: 0 0 0 10%;
+    color: #24ff58;
   }
 </style>
