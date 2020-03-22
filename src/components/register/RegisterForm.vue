@@ -1,69 +1,66 @@
 <template>
     <div id="container">
-        <div id="nav">
-            <img id="backArrow" src="images/BackArrow.png" alt="">
-            <a id="backLink" href="">ZURÜCK</a>
-            <h1 id="title">REGISTRIEREN</h1>
-        </div>
-        <div id="formContainer">
-            <cv-text-input label="Vorname" placeholder="Max" class="spaced"/>
-            <cv-text-input label="Nachname" placeholder="Mustermann" class="spaced"/>
-            <cv-text-input label="E-Mail" placeholder="Max.mustermann@gmx.de" class="spaced"/>
-            <cv-text-input type="password" label="Passwort" placeholder="Min. 8 Buchstaben" class="spaced"/>
-            <cv-button id="nextButton">Weiter</cv-button>
-        </div>
+        <RegisterNavigation :title="title" @backLinkClicked="handleBackLinkClicked"/>
+        <EnterPersonalData @nextButtonClicked="personalDataEntered" v-show="isVisibleEnterPersonalData"/>
+        <SelectSkillLevel @nextButtonClicked="skillLevelSelected" v-show="isVisibleSelectSkillLevel"/>
     </div>
 </template>
 
 <script>
+import EnterPersonalData from "./EnterPersonalData.vue"
+import SelectSkillLevel from "./SelectSkillLevel.vue"
+import RegisterNavigation from "./RegisterNavigation.vue"
+
 export default {
     name: "RegisterForm",
-    props: {
+    components: {
+        EnterPersonalData,
+        SelectSkillLevel,
+        RegisterNavigation
+    },
+    data: function() {
+        return {
+            title : 'REGISTRIEREN',
+            isVisibleEnterPersonalData : true,
+            isVisibleShowSelectSkillLevel: false
+        }
+    },
+    methods: {
+        handleBackLinkClicked: function() {
+            if (this.isVisibleEnterPersonalData) {
+                this.$router.push("/");
+            } else {
+                this.showEnterPersonalData();
+            }
+        },
+        showEnterPersonalData: function() {
+            this.title = 'REGISTRIEREN';
+            this.isVisibleEnterPersonalData = true;
+            this.isVisibleSelectSkillLevel = false;
+        },
+        showSelectSkillLevel: function() {
+            this.title = 'ERZÄHL UNS MEHR';
+            this.isVisibleEnterPersonalData = false;
+            this.isVisibleSelectSkillLevel = true;
+        },
+        personalDataEntered: function(personalData) {
+            alert(personalData);
+            this.showSelectSkillLevel();
+        },
+        skillLevelSelected: function(skillLevel) {
+            // TODO: Create user and redirect to dashboard
+            alert(skillLevel);
+        }
     }
 }
 </script>
-
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Raleway:Black&display=swap');
   
   #container {
-    display: inline-block;
-    vertical-align: middle;
+    float: left;
     margin-top: 153px;
     margin-left: 180px;
-    width: 595px;
-  }
-
-  #title {
-      display: inline-block;
-    font-family: 'Raleway', sans-serif;
-    font-size: 53.33px;
-  }
-
-  #backArrow {
-      display:inline-block;
-  }
-
-  #backLink {
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 550;
-      color: #565656;
-      text-decoration: none;
-  }
-
-  #formContainer {
-      width: 288px;
-      margin-left: 576px;
-  }
-
-  #formContainer > .spaced {
-      margin-top: 15px;
-  }
-
-  #nextButton {
-      margin-top: 68px;
-      margin-left: 82px;
   }
 </style>
