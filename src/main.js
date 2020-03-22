@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import 'carbon-components/css/carbon-components.css';
 import CarbonComponentsVue from '@carbon/vue/src/index';
+import Header from "./components/Header";
 
 Vue.config.productionTip = false;
 Vue.use(CarbonComponentsVue);
@@ -13,4 +14,5 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app');
-Vue.component('LogoImage');
+
+Vue.component('Header', Header);
