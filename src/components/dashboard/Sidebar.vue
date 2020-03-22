@@ -11,6 +11,7 @@
 
 <script>
   import Link from "./Link";
+  import Header from "../Header";
   import UserAvatar32 from "@carbon/icons-vue/lib/user--avatar/32"
   import Settings32 from "@carbon/icons-vue/lib/settings/32"
   import Power32 from "@carbon/icons-vue/lib/power/32"
@@ -18,7 +19,8 @@
   export default {
     name: "Sidebar",
     components: {
-      Link
+      Link,
+      Header
     },
     created() {
       // Add icons to this
@@ -32,9 +34,6 @@
 </script>
 
 <style scoped>
-  #logoImage {
-    margin-left: 22px;
-  }
 
   #side-nav {
     margin: 3% 0 0 3%;

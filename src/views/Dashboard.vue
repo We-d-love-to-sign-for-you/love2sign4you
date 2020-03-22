@@ -1,7 +1,8 @@
 <template>
   <div>
+
+    <Page id="page"/>
     <Sidebar/>
-    <Page/>
   </div>
 </template>
 
@@ -19,4 +20,8 @@
 </script>
 <style scoped>
 
+#page {
+  margin-left: 400px;
+  margin-top: 100px;
+}
 </style>
