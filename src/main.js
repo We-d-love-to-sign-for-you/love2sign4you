@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import 'carbon-components/css/carbon-components.css';
 import CarbonComponentsVue from '@carbon/vue/src/index';
+import Header from "./components/Header";
 import { createProvider } from './vue-apollo'
 
 Vue.config.productionTip = false
@@ -15,3 +16,5 @@ new Vue({
   apolloProvider: createProvider(),
   render: h => h(App)
 }).$mount('#app');
+
+Vue.component('Header', Header);
