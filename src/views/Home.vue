@@ -12,7 +12,7 @@
         Registriere dich jetzt als Gebärdensprachübersetzer*in:
       </p>
       <cv-button id="registerButton" :kind="primary" v-on:click="handleClickOnRegisterButton">Jetzt registrieren</cv-button>
-    </div>    
+    </div>
     <img id="logo" src="images/LogoSW.png" alt="">
   </div>
 </template>
@@ -37,7 +37,7 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Raleway:Black&display=swap');
 
   #header {
-    margin-left: 38px; 
+    margin-left: 38px;
     float: left;
   }
 
