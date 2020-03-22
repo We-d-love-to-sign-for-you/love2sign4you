@@ -5,11 +5,12 @@ import store from './store'
 import 'carbon-components/css/carbon-components.css';
 import CarbonComponentsVue from '@carbon/vue/src/index';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 Vue.use(CarbonComponentsVue);
 
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
+Vue.component('LogoImage');
