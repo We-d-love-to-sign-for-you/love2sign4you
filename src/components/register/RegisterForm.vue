@@ -48,8 +48,8 @@ export default {
             this.showSelectSkillLevel();
         },
         skillLevelSelected: function(skillLevel) {
-            // TODO: Create user and redirect to dashboard
             alert(skillLevel);
+            this.$router.push("/Dashboard");
         }
     }
 }
