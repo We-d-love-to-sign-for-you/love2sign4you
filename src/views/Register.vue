@@ -1,15 +1,19 @@
 <template>
-    <div>
-        <h2>Here is Register page</h2>
-    </div>
+  <div>
+    <Header id="header" maxWidth="92"/>
+    <RegisterForm/>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "Register"
-    }
+import Header from "../components/Header.vue"
+import RegisterForm from "../components/register/RegisterForm"
+
+export default {
+  name: 'Home',
+  components: {
+    Header,
+    RegisterForm,
+  }
+};
 </script>
-
-<style scoped>
-
-</style>
