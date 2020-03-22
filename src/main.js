@@ -14,4 +14,4 @@ new Vue({
   store,
   apolloProvider: createProvider(),
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
