@@ -1,14 +1,19 @@
 <template>
-  <Sidebar/>
+  <div>
+    <Sidebar/>
+    <Page/>
+  </div>
 </template>
 
 <script>
   import Sidebar from "../components/dashboard/Sidebar";
+  import Page from "../components/dashboard/Page";
 
   export default {
     name: 'Dashboard',
     components: {
-      Sidebar
+      Sidebar,
+      Page
     }
   }
 </script>

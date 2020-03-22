@@ -17,6 +17,10 @@
 </script>
 
 <style scoped>
+  .nav-link{
+    padding-top: 20px;
+  }
+
   .nav-icon {
     vertical-align: middle;
     height: 22px;

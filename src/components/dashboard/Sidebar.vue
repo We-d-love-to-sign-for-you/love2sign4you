@@ -1,6 +1,6 @@
 <template>
   <CvSideNav id="side-nav" fixed expanded>
-    <Header :max-height="200" :max-width="200"/>
+    <Header id="logoImage" :max-height="150" :max-width="150"/>
     <CvSideNavItems id="nav-items">
       <Link :text="'Account'" :icon="UserAvatar32" :href="'javascript:void(0)'"/>
       <Link :text="'Einstellungen'" :icon="Settings32" :href="'javascript:void(0)'"/>
@@ -32,6 +32,10 @@
 </script>
 
 <style scoped>
+  #logoImage {
+    margin-left: 22px;
+  }
+
   #side-nav {
     margin: 3% 0 0 3%;
   }
