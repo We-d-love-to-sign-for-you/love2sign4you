@@ -11,9 +11,7 @@
         <br />
         Registriere dich jetzt als Gebärdensprachübersetzer*in:
       </p>
-      <form action="register">
-        <cv-button id="registerButton" :kind="primary">Jetzt registrieren</cv-button>
-      </form>
+      <cv-button id="registerButton" :kind="primary" v-on:click="handleClickOnRegisterButton">Jetzt registrieren</cv-button>
     </div>    
     <img id="logo" src="images/LogoSW.png" alt="">
   </div>
@@ -26,6 +24,11 @@ export default {
   name: 'Home',
   components: {
     Header,
+  },
+  methods: {
+    handleClickOnRegisterButton : function() {
+      this.$router.push("/Register");
+    }
   }
 };
 </script>
