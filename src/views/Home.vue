@@ -11,10 +11,8 @@
         <br />
         Registriere dich jetzt als Gebärdensprachübersetzer*in:
       </p>
-      <form action="register">
-        <cv-button id="registerButton" :kind="primary">Jetzt registrieren</cv-button>
-      </form>
-    </div>    
+      <cv-button id="registerButton" :kind="primary" v-on:click="handleClickOnRegisterButton">Jetzt registrieren</cv-button>
+    </div>
     <img id="logo" src="images/LogoSW.png" alt="">
   </div>
 </template>
@@ -26,6 +24,11 @@ export default {
   name: 'Home',
   components: {
     Header,
+  },
+  methods: {
+    handleClickOnRegisterButton : function() {
+      this.$router.push("/Register");
+    }
   }
 };
 </script>
@@ -34,7 +37,7 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Raleway:Black&display=swap');
 
   #header {
-    margin-left: 38px; 
+    margin-left: 38px;
     float: left;
   }
 
