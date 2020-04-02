@@ -2,7 +2,7 @@ stages:
   - build
   - deploy
 
-build:
+.build:
   image: node:latest
   stage: build
   before_script:
@@ -35,6 +35,10 @@ pages: # the job must be named pages
     - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
   only:
     - master
+
+build:
+  extends: .build
+  variables:
 
 deploy-dev:
   extends: .deploy
