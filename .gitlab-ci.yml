@@ -1,15 +1,40 @@
+stages:
+  - build
+  - deploy
+
+build:
+  image: node:latest
+  stage: build
+  before_script:
+    - npm ci
+  script:
+    - npm run build
+    - mv public public-vue
+    - mv dist public
+  artifacts:
+    untracked: true
+    expire_in: 5 days
+    paths:
+      - public
+
+.deploy:
+  stage: deploy
+  image: 'python:latest' # We use python because there is a well-working AWS Sdk
+  script:
+    - aws s3 cp public s3://${BUCKET_NAME}/public/ --recursive
+
 pages: # the job must be named pages
   image: node:latest
   stage: deploy
   script:
-    - npm ci
-    - npm run build
-    - mv public public-vue # GitLab Pages hooks on the public folder
-    - mv dist public # rename the dist folder (result of npm run build)
-    # optionally, you can activate gzip support wih the following line:
     - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
-  artifacts:
-    paths:
-      - public # artifact path must be /public for GitLab Pages to pick it up
   only:
     - master
+
+deploy-dev:
+  extends: .deploy
+  environment:
+    name: dev
+    url: https://dev.love2sign4you/
+  variables:
+    BUCKET_NAME: 'love2sign4you-dev-bucket'
