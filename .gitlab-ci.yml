@@ -26,7 +26,7 @@ build:
     - echo AWS_ACCESS_KEY_ID $AWS_ACCESS_KEY_ID
     - echo AWS_REGION ${AWS_REGION}
     - echo BUCKET_NAME ${BUCKET_NAME}
-    - aws s3 cp public s3://${BUCKET_NAME}/public/ --recursive
+    - aws s3 cp public s3://${BUCKET_NAME}/public/love2sign4you --recursive
 
 pages: # the job must be named pages
   image: node:latest
@@ -40,7 +40,7 @@ deploy-dev:
   extends: .deploy
   environment:
     name: dev
-    url: https://dev.love2sign4you/
+    url: https://dev.love2sign4you.eu/
   variables:
     BUCKET_NAME: 'love2sign4you-dev-bucket'
     AWS_REGION: ${AWS_DEFAULT_REGION}
