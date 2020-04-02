@@ -19,6 +19,8 @@ build:
 
 .deploy:
   stage: deploy
+  before_script:
+    - pip install awscli
   image: 'python:latest' # We use python because there is a well-working AWS Sdk
   script:
     - aws s3 cp public s3://${BUCKET_NAME}/public/ --recursive
@@ -38,3 +40,6 @@ deploy-dev:
     url: https://dev.love2sign4you/
   variables:
     BUCKET_NAME: 'love2sign4you-dev-bucket'
+    AWS_REGION: ${AWS_DEFAULT_REGION}
+    AWS_ACCESS_KEY: ${DEV_DEPLOY_AWS_ACCESS_KEY}
+    AWS_SECRET_AWS_ACCESS_KEY: ${DEV_DEPLOY_AWS_SECRET_ACCESS_KEY}
