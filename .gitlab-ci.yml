@@ -10,7 +10,7 @@ stages:
   script:
     - npm run build
     - mv public public-vue
-    - mv dist public
+    - mv dist public/love2sign4you
   artifacts:
     untracked: true
     expire_in: 5 days
@@ -26,7 +26,7 @@ stages:
     - echo AWS_ACCESS_KEY_ID $AWS_ACCESS_KEY_ID
     - echo AWS_REGION ${AWS_REGION}
     - echo BUCKET_NAME ${BUCKET_NAME}
-    - aws s3 cp public s3://${BUCKET_NAME}/public/love2sign4you --recursive
+    - aws s3 cp public s3://${BUCKET_NAME}/public --recursive
 
 pages: # the job must be named pages
   image: node:latest
@@ -36,9 +36,11 @@ pages: # the job must be named pages
   only:
     - master
 
-build:
+build-dev:
   extends: .build
   variables:
+    VUE_APP_GRAPHQL_HTTP: ${DEV_APP_GRAPHQL_HTTP}
+    VUE_APP_APOLLO_API_KEY: ${DEV_APP_APOLLO_API_KEY}
 
 deploy-dev:
   extends: .deploy
