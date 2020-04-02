@@ -5,15 +5,20 @@ import store from './store'
 import 'carbon-components/css/carbon-components.css';
 import CarbonComponentsVue from '@carbon/vue/src/index';
 import Header from "./components/Header";
-import { createProvider } from './vue-apollo'
+import VueApollo from "vue-apollo";
+import { client } from './vue-apollo';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 Vue.use(CarbonComponentsVue);
+
+const apolloProvider = new VueApollo({
+  defaultClient: client,
+});
 
 new Vue({
   router,
   store,
-  apolloProvider: createProvider(),
+  apolloProvider,
   render: h => h(App)
 }).$mount('#app');
 
