@@ -11,7 +11,7 @@ stages:
     - npm run build
     - mv public public-vue
     - mkdir -p public/love2sign4you
-    - mv dist public/love2sign4you
+    - mv dist/* public/love2sign4you
   artifacts:
     untracked: true
     expire_in: 5 days
